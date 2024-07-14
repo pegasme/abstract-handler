@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{C97967
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xm.TestTask.Messages", "Xm.TestTask.Messages\Xm.TestTask.Messages.csproj", "{D0E917E5-3FD9-4E8C-876E-708AD1613D05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xm.TestTask.Services.UnitTests", "Xm.TestTask.Messages.UnitTests\Xm.TestTask.Services.UnitTests.csproj", "{DD2C6BDD-064C-4A51-BDED-F110350564ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xm.TestTask.Services.UnitTests", "Xm.TestTask.Services.UnitTests\Xm.TestTask.Services.UnitTests.csproj", "{DD2C6BDD-064C-4A51-BDED-F110350564ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xm.TestTask.Services", "Xm.TestTask.Services\Xm.TestTask.Services.csproj", "{D8720CDA-FB2D-4E45-A5AB-C2C3FD83D698}"
 EndProject
