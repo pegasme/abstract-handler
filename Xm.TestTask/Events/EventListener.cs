@@ -1,23 +1,26 @@
-﻿namespace Xm.TestTask.Events
+﻿using Xm.TestTask.Services;
+
+namespace Xm.TestTask.Events;
+
+public class EventListener
 {
-    public class EventListener
+    private readonly IProcessMessageService _messageProcessService;
+    private readonly IEventBus _eventBus;
+
+    public EventListener(IProcessMessageService messageProcessService, IEventBus eventBus)
     {
-        private readonly IEventBus _eventBus;
+        _messageProcessService = messageProcessService;
+        _eventBus = eventBus;
+    }
 
-        public EventListener(IEventBus eventBus)
+    public void StartListening()
+    {
+        Task.Run(async () =>
         {
-            _eventBus = eventBus;
-        }
-
-        public void StartListening()
-        {
-            Task.Run(async () =>
+            await foreach (var @event in _eventBus.ListenAsync())
             {
-                await foreach (var @event in _eventBus.ListenAsync())
-                {
-                    // todo: handle
-                }
-            });
-        }
+                await _messageProcessService.ProcessMessageAsync(@event.DataType, @event.Body);
+            }
+        });
     }
 }

@@ -20,6 +20,12 @@ public class ProcessMessageService : IProcessMessageService
         _logger = logger;
     }
 
+    /// <summary>
+    /// Call correct handlers depends on message type
+    /// </summary>
+    /// <param name="messageType">message type value - action, notification, avatar</param>
+    /// <param name="data">message data</param>
+    /// <returns>Result</returns>
     public async Task<Result> ProcessMessageAsync(string messageType, byte[] data)
     {
         if (string.IsNullOrWhiteSpace(messageType))

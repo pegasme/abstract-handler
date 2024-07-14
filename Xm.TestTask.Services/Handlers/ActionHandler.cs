@@ -5,6 +5,9 @@ using Xm.TestTask.Services.Utilities;
 
 namespace Xm.TestTask.Services.Strategies;
 
+/// <summary>
+/// Handler for message type of action. 
+/// </summary>
 public class ActionHandler : IMessageHandler
 {
     private readonly ILogger _logger;
@@ -14,8 +17,16 @@ public class ActionHandler : IMessageHandler
         _logger = logger;
     }
 
+    /// <summary>
+    /// returns action
+    /// </summary>
     public string DataType => "action";
 
+    /// <summary>
+    /// handle action message data, deserialiaze it to ActionMessage
+    /// </summary>
+    /// <param name="message">Message data</param>
+    /// <returns>Result</returns>
     public async Task<Result> HandleAsync(byte[] message)
     {
         await Task.Delay(100);

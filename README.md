@@ -39,3 +39,10 @@ EventListener - по какой-то шине событий идут сообщ
 Для добавления нового обработчика нужно добавить класс в Xm.TestTask.Services/Handlers и отнаследовать его от IMessageHandler. 
 Затем зарегистрировать в DI.
 При старте приложения ProcessMessageService получит из DI все возможные хендреры и будет выбирать нужный.
+
+
+For react application Xm.TestTask.App
+npm run build will build application
+npm run start will start application on port 3000
+
+@ buttons will send via SignalR message to hub

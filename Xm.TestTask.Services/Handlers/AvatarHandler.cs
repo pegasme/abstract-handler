@@ -4,6 +4,9 @@ using Serilog.Core;
 
 namespace Xm.TestTask.Services.Strategies;
 
+/// <summary>
+/// Handler for message type of avatar. 
+/// </summary>
 public class AvatarHandler : IMessageHandler
 {
     private readonly ILogger _logger;
@@ -12,8 +15,17 @@ public class AvatarHandler : IMessageHandler
     {
         _logger = logger;
     }
+
+    /// <summary>
+    /// returns avatar
+    /// </summary>
     public string DataType => "avatar";
 
+    /// <summary>
+    /// handle action message data it to AvatarMessage
+    /// </summary>
+    /// <param name="message">Message data</param>
+    /// <returns>Result</returns>
     public async Task<Result> HandleAsync(byte[] message)
     {
         await Task.Delay(50);

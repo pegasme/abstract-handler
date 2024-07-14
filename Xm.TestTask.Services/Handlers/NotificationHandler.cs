@@ -6,6 +6,9 @@ using Xm.TestTask.Services.Utilities;
 
 namespace Xm.TestTask.Services.Strategies;
 
+/// <summary>
+/// Handler for message type of notification. 
+/// </summary>
 public class NotificationHandler : IMessageHandler
 {
     private readonly ILogger _logger;
@@ -15,8 +18,16 @@ public class NotificationHandler : IMessageHandler
         _logger = logger;
     }
 
+    /// <summary>
+    /// returns notification
+    /// </summary>
     public string DataType => "notification";
 
+    // <summary>
+    /// handle action message data, deserialize it to NotificationMessage
+    /// </summary>
+    /// <param name="message">Message data</param>
+    /// <returns>Result</returns>
     public async Task<Result> HandleAsync(byte[] message)
     {
         await Task.Delay(50);
