@@ -28,6 +28,7 @@ public class AvatarHandler : IMessageHandler
     /// <returns>Result</returns>
     public async Task<Result> HandleAsync(byte[] message)
     {
+        // Do some very important job
         await Task.Delay(50);
         _logger.Information("{@dataType} was saved successfully", DataType);
         return Result.Ok();

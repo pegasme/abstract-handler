@@ -30,12 +30,14 @@ public class ProcessMessageService : IProcessMessageService
     {
         if (string.IsNullOrWhiteSpace(messageType))
         {
-            _logger.Error($"{nameof(messageType)} is null or empty", messageType);
-            return Result.Fail($"{nameof(messageType)} is null or empty");
+            var errMessage = $"{nameof(messageType)} is null or empty";
+            _logger.Error(errMessage);
+            return Result.Fail(errMessage);
         }
 
         if (!messageHandlers.TryGetValue(messageType, out var messageHandler))
         {
+            // use structured logging - message type is a parameter and we could found by it
             _logger.Error("Handler for message type {@messageType} was not found", messageType);
             return Result.Fail($"Handler for message type {messageType} was not found");
         }

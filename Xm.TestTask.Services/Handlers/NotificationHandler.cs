@@ -30,8 +30,6 @@ public class NotificationHandler : IMessageHandler
     /// <returns>Result</returns>
     public async Task<Result> HandleAsync(byte[] message)
     {
-        await Task.Delay(50);
-
         var notification = SerializerUtilities.DeserializeFromBytes<NotificationMessage>(message);
 
         if (notification.IsFailed)
@@ -39,6 +37,9 @@ public class NotificationHandler : IMessageHandler
             _logger.Error("Could not deserialize {@dataType}. Errors: {@errors}", DataType, notification.Errors);
             return notification.ToResult();
         }
+
+        // Do some very important job
+        await Task.Delay(50);
 
         _logger.Information("{@dataType} was saved successfully. Notification Message: {message}", DataType, notification.Value.Message);
         return Result.Ok();

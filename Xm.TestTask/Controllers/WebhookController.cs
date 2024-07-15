@@ -13,7 +13,6 @@ public class WebhookController : ControllerBase
     {
         _messageProcessService = messageProcessService;
     }
-
     
     [HttpPost]
     public async Task<IActionResult> HandleAsync()

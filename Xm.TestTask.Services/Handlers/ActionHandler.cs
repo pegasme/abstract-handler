@@ -29,7 +29,6 @@ public class ActionHandler : IMessageHandler
     /// <returns>Result</returns>
     public async Task<Result> HandleAsync(byte[] message)
     {
-        await Task.Delay(100);
         var action = SerializerUtilities.DeserializeFromBytes<ActionMessage>(message);
 
         if (action.IsFailed)
@@ -37,6 +36,9 @@ public class ActionHandler : IMessageHandler
             _logger.Error("Could not deserialize {@dataType}. Errors: {@errors}", DataType, action.Errors);
             return action.ToResult();
         }
+
+        // Do some very important job
+        await Task.Delay(100);
 
         _logger.Information("{@dataType} was saved successfully. Action {@actionName}", DataType, action.Value.Name);
         return Result.Ok();

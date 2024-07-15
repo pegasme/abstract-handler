@@ -21,7 +21,7 @@ builder.Services.AddTransient<IMessageHandler, ActionHandler>();
 builder.Services.AddTransient<IMessageHandler, AvatarHandler>();
 builder.Services.AddTransient<IMessageHandler, NotificationHandler>();
 
-builder.Services.AddTransient<IProcessMessageService, ProcessMessageService>();
+builder.Services.AddSingleton<IProcessMessageService, ProcessMessageService>();
 builder.Services.AddControllers();
 
 builder.Services.AddSignalR();
