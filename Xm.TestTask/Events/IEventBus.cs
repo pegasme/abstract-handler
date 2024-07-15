@@ -2,6 +2,6 @@
 {
     public interface IEventBus
     {
-        IAsyncEnumerable<Event> ListenAsync();
+        IAsyncEnumerable<Event> ListenAsync(CancellationToken token = default);
     }
 }

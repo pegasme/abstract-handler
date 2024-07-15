@@ -6,7 +6,7 @@ namespace Xm.TestTask.Services;
 
 public interface IProcessMessageService
 {
-    Task<Result> ProcessMessageAsync(string messageType, byte[] data);
+    Task<Result> ProcessMessageAsync(string messageType, byte[] data, CancellationToken token = default);
 }
 
 public class ProcessMessageService : IProcessMessageService
@@ -26,7 +26,7 @@ public class ProcessMessageService : IProcessMessageService
     /// <param name="messageType">message type value - action, notification, avatar</param>
     /// <param name="data">message data</param>
     /// <returns>Result</returns>
-    public async Task<Result> ProcessMessageAsync(string messageType, byte[] data)
+    public async Task<Result> ProcessMessageAsync(string messageType, byte[] data, CancellationToken token = default)
     {
         if (string.IsNullOrWhiteSpace(messageType))
         {
